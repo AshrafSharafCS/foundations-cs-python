@@ -67,7 +67,11 @@
 #   average=sum/len(list)
 #   return  average
 
-# # I used some help in the get top students function
+
+
+
+#   # I used some help in the get top students function#
+
 # def GetTopStudents(list,n):
 #   if len(list)>=n:
 #     SortList=sorted(list, key=lambda student: student['GPA'], reverse=True)
@@ -118,112 +122,112 @@
 
 #FSD Question
 
-class1=[
-  {"Name": "Alice", "Age": 20, "Scores": (20,50,80)},
-  {"Name": "Ashraf", "Age": 23, "Scores": (50,50,50)},
-]
+# class1=[
+#   {"Name": "Alice", "Age": 20, "Scores": (20,50,80)},
+#   {"Name": "Ashraf", "Age": 23, "Scores": (50,50,50)},
+# ]
 
-class2=[
-  {"Name": "Alice", "Age": 20, "Scores": (60,50,80)},
-  {"Name": "Eyad", "Age": 21, "Scores": (55,70,57)},
-]
+# class2=[
+#   {"Name": "Alice", "Age": 20, "Scores": (60,50,80)},
+#   {"Name": "Eyad", "Age": 21, "Scores": (55,70,57)},
+# ]
 
-def GetAverageScore(list):
-  if len(list)!=0:
-    for i in range(len(list)):
-        score=list[i]["Scores"]
-        avr=(score[0]+score[1]+score[2])/3
-        dic={list[i]["Name"]:avr}
-        print(dic)
-  else:
-    print("list is empty")
+# def GetAverageScore(list):
+#   if len(list)!=0:
+#     for i in range(len(list)):
+#         score=list[i]["Scores"]
+#         avr=(score[0]+score[1]+score[2])/3
+#         dic={list[i]["Name"]:avr}
+#         print(dic)
+#   else:
+#     print("list is empty")
 
-def GetYoungestStudent(list):
-  if len(list)!=0:
-    min=list[0]["Age"]
-    name=list[0]["Name"]
-    for i in range(len(list)):
-      if list[i]["Age"]<min:
-        min=list[i]["Age"]
-        name=list[i]["Name"]
-    print(name)
-  else:
-    print("List is empty")
+# def GetYoungestStudent(list):
+#   if len(list)!=0:
+#     min=list[0]["Age"]
+#     name=list[0]["Name"]
+#     for i in range(len(list)):
+#       if list[i]["Age"]<min:
+#         min=list[i]["Age"]
+#         name=list[i]["Name"]
+#     print(name)
+#   else:
+#     print("List is empty")
 
-def GetHighestScore(list):
-  if len(list)!=0:
-    name=""
-    max=0
-    for i in range(len(list)):
-      sum=list[i]["Scores"][0]+list[i]["Scores"][1]+list[i]["Scores"][2]
-      if sum>max:
-        max=sum
-        name=list[i]["Name"]
-    print(name)
-  else:
-    print("List is empty")
+# def GetHighestScore(list):
+#   if len(list)!=0:
+#     name=""
+#     max=0
+#     for i in range(len(list)):
+#       sum=list[i]["Scores"][0]+list[i]["Scores"][1]+list[i]["Scores"][2]
+#       if sum>max:
+#         max=sum
+#         name=list[i]["Name"]
+#     print(name)
+#   else:
+#     print("List is empty")
 
-def AddStudent(list,name,age,score):
-    list.append({"Name": name, "Age": age,"Scores": score})
-    return "Student added successfully."
+# def AddStudent(list,name,age,score):
+#     list.append({"Name": name, "Age": age,"Scores": score})
+#     return "Student added successfully."
 
-def RemoveStudent(list,name):
-    for i in range(len(list)):
-      if list[i]["Name"]==name:
-        del list[i]
-        return "Student deleted successfully."
-    return "Student not found."
+# def RemoveStudent(list,name):
+#     for i in range(len(list)):
+#       if list[i]["Name"]==name:
+#         del list[i]
+#         return "Student deleted successfully."
+#     return "Student not found."
 
-def GetCommonStudents(list1,list2):
-    common=[]
-    for i in range(len(list1)):
-      for j in range(len(list2)):
-        if list1[i]["Name"]==list2[j]["Name"]:
-          common.append(list1[i]["Name"])
-    return set(common)
+# def GetCommonStudents(list1,list2):
+#     common=[]
+#     for i in range(len(list1)):
+#       for j in range(len(list2)):
+#         if list1[i]["Name"]==list2[j]["Name"]:
+#           common.append(list1[i]["Name"])
+#     return set(common)
 
-def FindConsistentImprovement(list):
-  l=[]
-  if len(list)!=0:
-    for i in range(len(list)):
-      if list[i]["Scores"][0]<=list[i]["Scores"][1] and list[i]["Scores"][1]<=list[i]["Scores"][2]:
-        l+=[list[i]["Name"]]
-    t=tuple(l)
-    return t
-  else:
-    return "List is empty"
-
-
+# def FindConsistentImprovement(list):
+#   l=[]
+#   if len(list)!=0:
+#     for i in range(len(list)):
+#       if list[i]["Scores"][0]<=list[i]["Scores"][1] and list[i]["Scores"][1]<=list[i]["Scores"][2]:
+#         l+=[list[i]["Name"]]
+#     t=tuple(l)
+#     return t
+#   else:
+#     return "List is empty"
 
 
-choice=1
-while choice!=9:
-  print("\n1.Get Average Score \n2.Get Youngest Student \n3.Get Highest Score \n4.Add Student \n5.Remove Student \n6.Get Common Students \n7.Find Students With Consistent Improvement \n8.Exit \n- - - - - - - - - - - - - - -")
-  choice=int(input("Enter your choice: "))
-  if choice==1:
-    GetAverageScore(class1)
-  elif choice==2:
-    GetYoungestStudent(class1)
-  elif choice==3:
-    GetHighestScore(class1)
-  elif choice==4:
-    name=input("Enter name: ")
-    age=int(input("Enter age: "))
-    score=tuple(map(int,input("Enter 3 grades : ").split(',')))
-    if score[0]>100 or score[1]>100 or score[2]>100:
-      print("Invalid grades!")
-    else:
-      print(AddStudent(class1,name,age,score))
-  elif choice==5:
-    name=input("Enter student name: ")
-    print(RemoveStudent(class1,name))
-  elif choice==6:
-    print(GetCommonStudents(class1,class2))
-  elif choice==7:
-    print(FindConsistentImprovement(class1))
-  elif choice==8:
-    print("Program ends")
-    break
-  else:
-    print("Invalid choice.")
+
+
+# choice=1
+# while choice!=9:
+#   print("\n1.Get Average Score \n2.Get Youngest Student \n3.Get Highest Score \n4.Add Student \n5.Remove Student \n6.Get Common Students \n7.Find Students With Consistent Improvement \n8.Exit \n- - - - - - - - - - - - - - -")
+#   choice=int(input("Enter your choice: "))
+#   if choice==1:
+#     GetAverageScore(class1)
+#   elif choice==2:
+#     GetYoungestStudent(class1)
+#   elif choice==3:
+#     GetHighestScore(class1)
+#   elif choice==4:
+#     name=input("Enter name: ")
+#     age=int(input("Enter age: "))
+#     score=tuple(map(int,input("Enter 3 grades : ").split(',')))
+#     if score[0]>100 or score[1]>100 or score[2]>100:
+#       print("Invalid grades!")
+#     else:
+#       print(AddStudent(class1,name,age,score))
+#   elif choice==5:
+#     name=input("Enter student name: ")
+#     print(RemoveStudent(class1,name))
+#   elif choice==6:
+#     print(GetCommonStudents(class1,class2))
+#   elif choice==7:
+#     print(FindConsistentImprovement(class1))
+#   elif choice==8:
+#     print("Program ends")
+#     break
+#   else:
+#     print("Invalid choice.")
 
